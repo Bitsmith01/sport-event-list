@@ -6,7 +6,7 @@ type Props = {};
 
 const Hero = (props: Props) => {
   return (
-    <section className="container mx-auto flex flex-col space-y-3 relative">
+    <section className="container mx-auto flex flex-col space-y-3 md:space-y-10 relative mt-2 md:mt-6">
       <div className="flex items-center justify-center px-5 py-2">
         <span className="text-sm font-bold text-center md:text-2xl md:w-[60%]">
           Embark on the Thrill of <span className="underline text-red-500">Sporting Events</span> : Experience the
