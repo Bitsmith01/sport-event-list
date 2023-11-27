@@ -1,17 +1,37 @@
-import React from 'react';
-import Image from 'next/image';
-import imf from '../public/emily-WOBRFCzgLdk-unsplash.jpg';
+import React from "react";
+import Image from "next/image";
 
-type Props = {};
+type Props = {
+  article: {
+    image: string;
+    league: string;
+    title: string;
+  };
+};
 
-const ContestsCard = (props: Props) => {
+const ContestsCard = ({ article }: Props) => {
   return (
-    <div className='h-96 bg-red-500'>
-      <div className='h-2/3'>
-        <Image src={imf} style={{ width: '100%', height:"100%", objectFit:"cover" }} alt='Contest Image' />
+    <div className="h-96 bg-gray-100 shadow-2xl rounded-md">
+      <div className="h-3/4 relative">
+        <Image
+          src={article.image}
+          width={500}
+          height={300}
+          className="z-10"
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            borderRadius: "0.375rem",
+          }}
+          alt="Contest Image"
+        />
+        <span className="absolute z-10 rounded-full bg-[#22c55ec0] w-fit flex justify-center items-center text-sm px-5 text-white font-semibold top-[20px] left-[20px]">
+          {article.league}
+        </span>
       </div>
-      <div className='h-1/3'>
-        dhbjhjevl jkjjlk lbcjbd kls d skbscz 
+      <div className="h-1/4 p-5">
+        <span>{article.title}</span>
       </div>
     </div>
   );
