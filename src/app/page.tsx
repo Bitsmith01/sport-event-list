@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Image from "next/image";
@@ -8,7 +8,7 @@ import Hero from "../../components/Hero";
 import Contests from "../../components/Contests";
 import Popular from "../../components/Popular";
 import { Key } from "../../constants";
-
+import Footer from "../../components/Footer";
 
 export default function Home() {
   const [sportlists, setSportlists] = useState([]);
@@ -39,6 +39,7 @@ export default function Home() {
       <Hero />
       <Popular sportlists={sportlists} />
       <Contests />
+      <Footer />
     </>
   );
 }

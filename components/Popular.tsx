@@ -11,9 +11,44 @@ const Popular: React.FC<PopularProps> = ({ sportlists }) => {
   const [popularevent, setPopularevent] = useState<any[]>([]);
 
   useEffect(() => {
+    const fetchPopularevents = async () => {
+      if (selectedSport) {
+        const currentDate = new Date().toISOString().split('T')[0];
+        const options = {
+          method: "GET",
+          url: "https://livescore-sports.p.rapidapi.com/v1/events/list",
+          params: {
+            sport: selectedSport,
+            timezone: "0",
+            locale: "EN",
+            date: currentDate,
+          },
+          headers: {
+            "X-RapidAPI-Key": "e825623e1emsh8a05282aa617a32p112ee9jsnbdc537732a31",
+            "X-RapidAPI-Host": "livescore-sports.p.rapidapi.com",
+          },
+        };
+
+        try {
+          const response = await axios.request(options);
+          const data = response.data.DATA;
+          setPopularevent(data.slice(0, 4));
+          console.log(response.data.DATA[0].EVENTS[0].HOME_TEAM[0].NAME);
+        } catch (error) {
+          console.error(error);
+        }
+      }
+    };
+
+    if (selectedSport) {
+      fetchPopularevents();
+    }
+  }, [selectedSport]);
+
+  useEffect(() => {
+    // This useEffect runs only once when the component mounts
     if (sportlists.length > 0) {
       setSelectedSport(sportlists[0].name);
-      fetchPopularevents();
     }
   }, [sportlists]);
 
@@ -21,34 +56,6 @@ const Popular: React.FC<PopularProps> = ({ sportlists }) => {
     event: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>
   ) => {
     setSelectedSport(event.target.value);
-    fetchPopularevents();
-  };
-
-  const fetchPopularevents = async () => {
-    const currentDate = new Date().toISOString().split('T')[0];
-    const options = {
-      method: "GET",
-      url: "https://livescore-sports.p.rapidapi.com/v1/events/list",
-      params: {
-        sport: selectedSport,
-        timezone: "0",
-        locale: "EN",
-        date: currentDate,
-      },
-      headers: {
-        "X-RapidAPI-Key": "e825623e1emsh8a05282aa617a32p112ee9jsnbdc537732a31",
-        "X-RapidAPI-Host": "livescore-sports.p.rapidapi.com",
-      },
-    };
-
-    try {
-      const response = await axios.request(options);
-      const data = response.data.DATA;
-      setPopularevent(data.slice(0, 4));
-      console.log(response.data.DATA[0].EVENTS[0].HOME_TEAM[0].NAME);
-    } catch (error) {
-      console.error(error);
-    }
   };
 
   return (
