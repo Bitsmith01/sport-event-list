@@ -8,8 +8,8 @@ const Contests = (props: Props) => {
   const currentDate = new Date().toLocaleDateString();
 
   return (
-    <div className="container flex flex-col space-y-2 mx-auto p-5">
-      <div className="flex justify-between items-center my-3">
+    <div className="container flex flex-col space-y-2 mx-auto max-md:px-5 md:p-5">
+      <div className="flex justify-between items-center mt-3">
         <span className="md:font-bold md:text-2xl font-semibold">Contests</span>
         <span className="text-sm">{currentDate}</span>
       </div>

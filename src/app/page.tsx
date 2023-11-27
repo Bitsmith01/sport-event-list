@@ -27,7 +27,6 @@ export default function Home() {
     try {
       const response = await axios.request(options);
       const data = response.data;
-      console.log(data);
       setSportlists(data.DATA);
     } catch (error) {
       console.error(error);
