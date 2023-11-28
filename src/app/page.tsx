@@ -9,9 +9,12 @@ import Contests from "../../components/Contests";
 import Popular from "../../components/Popular";
 import { Key } from "../../constants";
 import Footer from "../../components/Footer";
+import Login from "../../components/Login";
 
 export default function Home() {
   const [sportlists, setSportlists] = useState([]);
+  const rapidApiKey = process.env.RAPIDAPI_KEY;
+  const rapidApihosts = process.env.RAPIDAPI_HOSTS;
 
   useEffect(() => {
     fetchData();
@@ -21,7 +24,10 @@ export default function Home() {
     const options = {
       method: "GET",
       url: "https://livescore-sports.p.rapidapi.com/v1/meta/sports",
-      headers: Key,
+      headers: {
+        "X-RapidAPI-Key": rapidApiKey,
+        "X-RapidAPI-Host": rapidApihosts,
+      },
     };
 
     try {
