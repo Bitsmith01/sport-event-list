@@ -60,18 +60,17 @@ const Navbar = (props: Props) => {
           </button>
           <span className="text-black h-16 w-24 text-2xl">Sign In</span>
           <div className="w-full flex justify-center items-center">
-            <button
+            <div
               className="w-[90%] flex justify-center items-center"
-              onClick={handleLoginBtn}
             >
-              <div className="flex h-16 w-[60%] border-[1px] justify-center items-center space-x-3">
+              <button className="flex h-16 w-[60%] border-[1px] justify-center items-center space-x-3" onClick={handleLoginBtn}>
                 <Image src={ime} width={60} alt="image" />
                 <span className="text-black max-md:hidden">
                   Keep the momentum going ! Sign in with Google to unlock
                   additional features and personalized experiences.
                 </span>
-              </div>
-            </button>
+              </button>
+            </div>
           </div>
         </div>
       </div>
