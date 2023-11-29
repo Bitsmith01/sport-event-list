@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Eventcard from "./Eventcard";
+import Link from "next/link";
 
 type PopularProps = {
   sportlists: any[];
@@ -9,10 +10,12 @@ type PopularProps = {
 const Popular: React.FC<PopularProps> = ({ sportlists }) => {
   const [selectedSport, setSelectedSport] = useState<string | null>(null);
   const [popularevent, setPopularevent] = useState<any[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchPopularevents = async () => {
       if (selectedSport) {
+        setLoading(true);
         const currentDate = new Date().toISOString().split("T")[0];
         const options = {
           method: "GET",
@@ -36,6 +39,8 @@ const Popular: React.FC<PopularProps> = ({ sportlists }) => {
           console.log(response.data.DATA[0].EVENTS[0].HOME_TEAM[0].NAME);
         } catch (error) {
           console.error(error);
+        } finally {
+          setLoading(false);
         }
       }
     };
@@ -64,10 +69,10 @@ const Popular: React.FC<PopularProps> = ({ sportlists }) => {
           Popular Events
         </span>
         <div className="flex relative justify-end w-1/2 items-center space-x-1">
-          <button className="flex space-x-1">
+          <Link href="/Home" className="flex space-x-1">
             <span className="text-sm max-md:underline">More </span>
             <span className="text-sm max-md:hidden"> events</span>
-          </button>
+          </Link>
           <select
             name=""
             id=""
@@ -84,6 +89,7 @@ const Popular: React.FC<PopularProps> = ({ sportlists }) => {
         </div>
       </div>
       <div className="h-96 bg-gray-50 shadow-md mt-6">
+
         {popularevent.map((event, index) => (
           <div className="h-1/4" key={index}>
             <Eventcard event={event} />

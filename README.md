@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Sports Events
 
-## Getting Started
+**Sport Event Listing** is a web application designed to keep sports fans informed about upcoming football events.
 
-First, run the development server:
+## Key Features
+
+- **Event List:** The application provides a comprehensive list of sports events, sorted by sport type, geographic location, date, and other relevant filters.
+- **Event Details:** Each event comes with detailed information such as date, time, venue, registration cost, rules, and logistical details.
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Contributions](#contributions)
+- [License](#license)
+
+## Installation
+
+Make sure you have [Node.js](https://nodejs.org/) installed on your machine. Also, create a RapidAPI account and generate API keys and host: [RapidAPI - Livescore Sports](https://rapidapi.com/tipsters/api/livescore-sports/). Additionally, create a Google Console account for the OAuth system.
+
+1. Clone this repository:
+
+   ```bash
+   git clone git@github.com:Bitsmith01/sport-event-list.git
+
+
+2. Install dependencies:
+```bash
+   npm install
+
+3. Create a .env file:
+mkdir .env 
+
+4. Fill it like this:
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+
+NEXT_PUBLIC_API_KEY=
+NEXT_PUBLIC_API_HOST=
+
+NEXTAUTH_URL=https://localhost:3000
+NEXTAUTH_SECRET=
+
+3. run the project 
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+   npm run dev

@@ -37,7 +37,6 @@ const HomeEventCard: React.FC<HomeEventCardProps> = ({ event }) => {
   const badgeSourceAway = event.EVENTS?.[0]?.AWAY_TEAM?.[0]?.BADGE_SOURCE || "";
   const [isButtonClicked, setIsButtonClicked] = useState(false);
 
-  // Extraction de l'heure à partir de la chaîne MATCH_START_DATE
   const matchStartDate = event.EVENTS?.[0]?.MATCH_START_DATE || "";
   const parsedDate = new Date(matchStartDate);
   const heuresMinutes = parsedDate.toLocaleTimeString([], {
