@@ -30,11 +30,5 @@ export const SPORTARTICLES = [
     image: "/clement-delacre-M5s9Ffs1KqU-unsplash.jpg",
     content:
       "Formula 1 racing enthusiasts were treated to a high-speed spectacle in the latest Grand Prix. The race featured intense competition, strategic pit stops, and heart-stopping moments on the track. As the drivers navigated challenging turns and straightaways, the Grand Prix lived up to its reputation as the pinnacle of motor racing.",
-  }
+  },
 ];
-
-
-export const Key = {
-  "X-RapidAPI-Key": "e825623e1emsh8a05282aa617a32p112ee9jsnbdc537732a31",
-  "X-RapidAPI-Host": "livescore-sports.p.rapidapi.com",
-};

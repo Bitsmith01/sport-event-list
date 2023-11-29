@@ -7,7 +7,6 @@ import Navbar from "../../components/Navbar";
 import Hero from "../../components/Hero";
 import Contests from "../../components/Contests";
 import Popular from "../../components/Popular";
-import { Key } from "../../constants";
 import Footer from "../../components/Footer";
 import Login from "../../components/Login";
 
@@ -25,8 +24,8 @@ export default function Home() {
       method: "GET",
       url: "https://livescore-sports.p.rapidapi.com/v1/meta/sports",
       headers: {
-        "X-RapidAPI-Key": "66350d8674msha95718691150d6dp105fc9jsnc7f20d776be0",
-        "X-RapidAPI-Host": "livescore-sports.p.rapidapi.com",
+        "X-RapidAPI-Key": process.env.NEXT_PUBLIC_API_KEY,
+        "X-RapidAPI-Host": process.env.NEXT_PUBLIC_API_HOST,
       },
     };
 

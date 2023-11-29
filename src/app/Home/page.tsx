@@ -11,6 +11,7 @@ const Home: React.FC<Props> = ({}) => {
   const [selectedSport, setSelectedSport] = useState<string | null>(null);
   const [Events, setEvents] = useState<any[]>([]);
   const [sportlists, setSportlists] = useState<any[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     fetchData();
@@ -19,6 +20,7 @@ const Home: React.FC<Props> = ({}) => {
   useEffect(() => {
     const fetchEvents = async () => {
       if (selectedSport) {
+        setLoading(true);
         const currentDate = new Date().toISOString().split("T")[0];
         const options = {
           method: "GET",
@@ -30,9 +32,8 @@ const Home: React.FC<Props> = ({}) => {
             date: currentDate,
           },
           headers: {
-            "X-RapidAPI-Key":
-              "66350d8674msha95718691150d6dp105fc9jsnc7f20d776be0",
-            "X-RapidAPI-Host": "livescore-sports.p.rapidapi.com",
+            "X-RapidAPI-Key": process.env.NEXT_PUBLIC_API_KEY,
+            "X-RapidAPI-Host": process.env.NEXT_PUBLIC_API_HOST,
           },
         };
 
@@ -43,6 +44,8 @@ const Home: React.FC<Props> = ({}) => {
           console.log(data);
         } catch (error) {
           console.error(error);
+        } finally {
+          setLoading(false);
         }
       }
     };
@@ -69,8 +72,8 @@ const Home: React.FC<Props> = ({}) => {
       method: "GET",
       url: "https://livescore-sports.p.rapidapi.com/v1/meta/sports",
       headers: {
-        "X-RapidAPI-Key": "66350d8674msha95718691150d6dp105fc9jsnc7f20d776be0",
-        "X-RapidAPI-Host": "livescore-sports.p.rapidapi.com",
+        "X-RapidAPI-Key": process.env.NEXT_PUBLIC_API_KEY,
+        "X-RapidAPI-Host": process.env.NEXT_PUBLIC_API_HOST,
       },
     };
 
@@ -109,9 +112,15 @@ const Home: React.FC<Props> = ({}) => {
             </select>
           </div>
           <div className="w-full flex flex-col space-y-1">
-            {Events.map((event, index) => (
-              <Homeeventcard key={index} event={event} />
-            ))}
+            {loading ? (
+              <div className="flex-1 flex justify-center items-center h-[500px]">
+                <p>Loading...</p>
+              </div>
+            ) : (
+              Events.map((event, index) => (
+                <Homeeventcard key={index} event={event} />
+              ))
+            )}
           </div>
         </div>
       </div>

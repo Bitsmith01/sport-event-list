@@ -12,20 +12,23 @@ type EventCardProps = {
         NAME?: string;
         ID?: string;
         BADGE_SOURCE?: string;
+        ABBREVIATION: string;
       }[];
       AWAY_TEAM?: {
         NAME?: string;
         ID?: string;
         BADGE_SOURCE?: string;
+        ABBREVIATION: string;
       }[];
     }[];
   };
 };
 
 const EventCard: React.FC<EventCardProps> = ({ event }) => {
-  const homeTeamName = event.EVENTS?.[0]?.HOME_TEAM?.[0]?.NAME || "Unknown";
+  const homeTeamName =
+    event.EVENTS?.[0]?.HOME_TEAM?.[0]?.ABBREVIATION || "Unknown";
   const badgeSource = event.EVENTS?.[0]?.HOME_TEAM?.[0]?.BADGE_SOURCE || "";
-  const awayTeamName = event.EVENTS?.[0]?.AWAY_TEAM?.[0]?.NAME || "Unknown";
+  const awayTeamName = event.EVENTS?.[0]?.AWAY_TEAM?.[0]?.ABBREVIATION || "Unknown";
   const badgeSAway = event.EVENTS?.[0]?.AWAY_TEAM?.[0]?.BADGE_SOURCE || "";
 
   return (
@@ -34,7 +37,7 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
         <span className="text-sm md:text-lg w-16 max-md:hidden">
           {homeTeamName}
         </span>
-        <div className="h-12 w-12 md:h-16 md:w-16 rounded-full overflow-hidden bg-black">
+        <div className="h-12 w-12 md:h-16 md:w-16 rounded-full overflow-hidden">
           <Image
             src={badgeSource}
             layout="responsive"
@@ -49,7 +52,7 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
         VS
       </span>
       <div className="w-1/3 flex justify-center  items-center space-x-8">
-        <div className="h-12 w-12 md:h-16 md:w-16 rounded-full overflow-hidden bg-black">
+        <div className="h-12 w-12 md:h-16 md:w-16 rounded-full overflow-hidden">
           <Image
             src={badgeSAway}
             layout="responsive"

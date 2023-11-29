@@ -13,11 +13,13 @@ type HomeEventCardProps = {
         NAME?: string;
         ID?: string;
         BADGE_SOURCE?: string;
+        ABBREVIATION: string;
       }[];
       AWAY_TEAM?: {
         NAME?: string;
         ID?: string;
         BADGE_SOURCE?: string;
+        ABBREVIATION: string;
       }[];
       MATCH_START_DATE?: string;
     }[];
@@ -25,8 +27,12 @@ type HomeEventCardProps = {
 };
 
 const HomeEventCard: React.FC<HomeEventCardProps> = ({ event }) => {
+  const homeTeamAbreviation =
+    event.EVENTS?.[0]?.HOME_TEAM?.[0]?.ABBREVIATION || "Unknown";
   const homeTeamName = event.EVENTS?.[0]?.HOME_TEAM?.[0]?.NAME || "Unknown";
   const badgeSourceHome = event.EVENTS?.[0]?.HOME_TEAM?.[0]?.BADGE_SOURCE || "";
+  const awayTeamAbreviation =
+    event.EVENTS?.[0]?.AWAY_TEAM?.[0]?.ABBREVIATION || "Unknown";
   const awayTeamName = event.EVENTS?.[0]?.AWAY_TEAM?.[0]?.NAME || "Unknown";
   const badgeSourceAway = event.EVENTS?.[0]?.AWAY_TEAM?.[0]?.BADGE_SOURCE || "";
   const [isButtonClicked, setIsButtonClicked] = useState(false);
@@ -48,9 +54,9 @@ const HomeEventCard: React.FC<HomeEventCardProps> = ({ event }) => {
         <div className="flex justify-center items-center border-[1px] h-full">
           <div className="w-1/3 flex justify-center items-center space-x-8">
             <span className="text-sm md:text-lg w-16 max-md:hidden">
-              {homeTeamName}
+              {homeTeamAbreviation}
             </span>
-            <div className="h-10 w-10 md:h-14 md:w-14 rounded-full overflow-hidden bg-black">
+            <div className="h-10 w-10 md:h-14 md:w-14 rounded-full overflow-hidden bg-white">
               <Image
                 src={badgeSourceHome}
                 layout="responsive"
@@ -65,7 +71,7 @@ const HomeEventCard: React.FC<HomeEventCardProps> = ({ event }) => {
             VS
           </span>
           <div className="w-1/3 flex justify-center items-center space-x-8">
-            <div className="h-10 w-10 md:h-14 md:w-14 rounded-full overflow-hidden bg-black">
+            <div className="h-10 w-10 md:h-14 md:w-14 rounded-full overflow-hidden bg-white">
               <Image
                 src={badgeSourceAway}
                 layout="responsive"
@@ -76,16 +82,19 @@ const HomeEventCard: React.FC<HomeEventCardProps> = ({ event }) => {
               />
             </div>
             <span className="text-sm md:text-lg w-16 max-md:hidden">
-              {awayTeamName}
+              {awayTeamAbreviation}
             </span>
           </div>
         </div>
       </button>
       {isButtonClicked && (
-        <div className=" bg-white w-full h-fit p-5">
-          <p>
-            The {homeTeamName} and {awayTeamName} will face each other today in{" "}
-            {event.COUNTRY_NAME} at {heuresMinutes}.
+        <div className=" bg-white w-full h-fit p-5 flex justify-center items-center">
+          <p className="px-5">
+            The teams {homeTeamName} and {awayTeamName} are poised to face each
+            other today in {event.COUNTRY_NAME} at {heuresMinutes}. Fans eagerly
+            anticipate the thrilling clash as the competition unfolds on the
+            field. It promises to be a captivating match filled with suspense
+            and excitement.
           </p>
         </div>
       )}

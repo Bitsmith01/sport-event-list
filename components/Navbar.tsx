@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useEffect, useState } from "react";
 import ime from "../public/7611770-removebg-preview.png";
 import Image from "next/image";
@@ -15,9 +15,9 @@ const Navbar = (props: Props) => {
   useEffect(() => {
     if (session) {
       localStorage.setItem("user", JSON.stringify(session.user));
-      router.push("/Home");
+      router.push("/Home");      
     }
-  }, []);
+  }, [session]);
 
   const handleLoginClick = () => {
     setshowloginSection(!showloginSection);
@@ -29,9 +29,11 @@ const Navbar = (props: Props) => {
 
   const handleLoginBtn = async () => {
     await signIn("google");
-    router.push("/Home");
   };
 
+  const handleLogoutBtn = async () => {
+    await signOut();
+  };
   return (
     <div>
       <div
@@ -61,14 +63,15 @@ const Navbar = (props: Props) => {
           </button>
           <span className="text-black h-16 w-24 text-2xl">Sign In</span>
           <div className="w-full flex justify-center items-center">
-            <div
-              className="w-[90%] flex justify-center items-center"
-            >
-              <button className="flex h-16 w-[60%] border-[1px] justify-center items-center space-x-3" onClick={handleLoginBtn}>
+            <div className="w-[90%] flex justify-center items-center">
+              <button
+                className="flex h-16 w-[60%] border-[1px] justify-center items-center space-x-3"
+                onClick={handleLoginBtn}
+              >
                 <Image src={ime} width={60} alt="image" />
                 <span className="text-black max-md:hidden">
-                  Keep the momentum going ! Sign in with Google to unlock
-                  additional features and personalized experiences.
+                  Sign in with Google to unlock additional features and
+                  personalized experiences.
                 </span>
               </button>
             </div>
@@ -83,26 +86,48 @@ const Navbar = (props: Props) => {
             <span className="text-black">.</span>
           </span>
         </div>
-        <button
-          className="bg-[#171717] w-fit p-1 md:px-4 text-white rounded-full transition-all text-sm flex justify-center items-center space-x-1"
-          onClick={handleLoginClick}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-5 h-5"
+
+        {session ? (
+          <button className="bg-[#171717] w-fit p-1 md:px-4 text-white rounded-full transition-all text-sm flex justify-center items-center space-x-1"
+          onClick={handleLogoutBtn}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"
+              />
+            </svg>
+            <span className="max-md:hidden">Sign Out</span>
+          </button>
+        ) : (
+          <button
+            className="bg-[#171717] w-fit p-1 md:px-4 text-white rounded-full transition-all text-sm flex justify-center items-center space-x-1"
+            onClick={handleLoginClick}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
-            />
-          </svg>
-          <span className="max-md:hidden">Login</span>
-        </button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-5 h-5"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+              />
+            </svg>
+            <span className="max-md:hidden">Login</span>
+          </button>
+        )}
       </nav>
     </div>
   );

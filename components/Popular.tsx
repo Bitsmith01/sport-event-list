@@ -24,9 +24,8 @@ const Popular: React.FC<PopularProps> = ({ sportlists }) => {
             date: currentDate,
           },
           headers: {
-            "X-RapidAPI-Key":
-              "66350d8674msha95718691150d6dp105fc9jsnc7f20d776be0",
-            "X-RapidAPI-Host": "livescore-sports.p.rapidapi.com",
+            "X-RapidAPI-Key": process.env.NEXT_PUBLIC_API_KEY,
+            "X-RapidAPI-Host": process.env.NEXT_PUBLIC_API_HOST,
           },
         };
 
@@ -72,7 +71,7 @@ const Popular: React.FC<PopularProps> = ({ sportlists }) => {
           <select
             name=""
             id=""
-            className="w-full md:w-[40%] p-2 h-9 bg-white border-[1px] rounded-md"
+            className="w-full md:w-[40%] p-1 h-9 bg-white border-[1px] rounded-md"
             value={selectedSport || ""}
             onChange={handleSportChange}
           >
