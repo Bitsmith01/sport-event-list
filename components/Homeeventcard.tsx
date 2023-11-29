@@ -84,8 +84,8 @@ const HomeEventCard: React.FC<HomeEventCardProps> = ({ event }) => {
       {isButtonClicked && (
         <div className=" bg-white w-full h-fit p-5">
           <p>
-            Le {homeTeamName} et le {awayTeamName} s&apos;affronteront
-            aujourd&apos;hui en {event.COUNTRY_NAME} à {heuresMinutes}.
+            The {homeTeamName} and {awayTeamName} will face each other today in{" "}
+            {event.COUNTRY_NAME} at {heuresMinutes}.
           </p>
         </div>
       )}

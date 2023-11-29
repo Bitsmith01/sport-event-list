@@ -69,8 +69,8 @@ const Home: React.FC<Props> = ({}) => {
       method: "GET",
       url: "https://livescore-sports.p.rapidapi.com/v1/meta/sports",
       headers: {
-        // "X-RapidAPI-Key": "66350d8674msha95718691150d6dp105fc9jsnc7f20d776be0",
-        // "X-RapidAPI-Host": "livescore-sports.p.rapidapi.com",
+        "X-RapidAPI-Key": "66350d8674msha95718691150d6dp105fc9jsnc7f20d776be0",
+        "X-RapidAPI-Host": "livescore-sports.p.rapidapi.com",
       },
     };
 
