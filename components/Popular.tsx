@@ -13,7 +13,7 @@ const Popular: React.FC<PopularProps> = ({ sportlists }) => {
   useEffect(() => {
     const fetchPopularevents = async () => {
       if (selectedSport) {
-        const currentDate = new Date().toISOString().split('T')[0];
+        const currentDate = new Date().toISOString().split("T")[0];
         const options = {
           method: "GET",
           url: "https://livescore-sports.p.rapidapi.com/v1/events/list",
@@ -24,7 +24,8 @@ const Popular: React.FC<PopularProps> = ({ sportlists }) => {
             date: currentDate,
           },
           headers: {
-            "X-RapidAPI-Key": "e825623e1emsh8a05282aa617a32p112ee9jsnbdc537732a31",
+            "X-RapidAPI-Key":
+              "66350d8674msha95718691150d6dp105fc9jsnc7f20d776be0",
             "X-RapidAPI-Host": "livescore-sports.p.rapidapi.com",
           },
         };
@@ -46,7 +47,6 @@ const Popular: React.FC<PopularProps> = ({ sportlists }) => {
   }, [selectedSport]);
 
   useEffect(() => {
-    // This useEffect runs only once when the component mounts
     if (sportlists.length > 0) {
       setSelectedSport(sportlists[0].name);
     }
@@ -64,7 +64,11 @@ const Popular: React.FC<PopularProps> = ({ sportlists }) => {
         <span className="w-1/2 md:font-bold md:text-2xl font-semibold">
           Popular Events
         </span>
-        <div className="flex relative justify-end w-1/2">
+        <div className="flex relative justify-end w-1/2 items-center space-x-1">
+          <button className="flex space-x-1">
+            <span className="text-sm max-md:underline">More </span>
+            <span className="text-sm max-md:hidden"> events</span>
+          </button>
           <select
             name=""
             id=""

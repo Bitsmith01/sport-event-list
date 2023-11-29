@@ -1,3 +1,4 @@
+"use client"
 import React, { useEffect, useState } from "react";
 import ime from "../public/7611770-removebg-preview.png";
 import Image from "next/image";
@@ -16,7 +17,7 @@ const Navbar = (props: Props) => {
       localStorage.setItem("user", JSON.stringify(session.user));
       router.push("/Home");
     }
-  }, [session]);
+  }, []);
 
   const handleLoginClick = () => {
     setshowloginSection(!showloginSection);

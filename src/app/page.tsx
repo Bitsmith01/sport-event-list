@@ -25,8 +25,8 @@ export default function Home() {
       method: "GET",
       url: "https://livescore-sports.p.rapidapi.com/v1/meta/sports",
       headers: {
-        "X-RapidAPI-Key": rapidApiKey,
-        "X-RapidAPI-Host": rapidApihosts,
+        // "X-RapidAPI-Key": "66350d8674msha95718691150d6dp105fc9jsnc7f20d776be0",
+        // "X-RapidAPI-Host": "livescore-sports.p.rapidapi.com",
       },
     };
 
