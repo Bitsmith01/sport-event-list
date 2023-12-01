@@ -13,9 +13,11 @@ const Navbar = (props: Props) => {
   const router = useRouter();
 
   useEffect(() => {
+    console.log(process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID);
+
     if (session) {
       localStorage.setItem("user", JSON.stringify(session.user));
-      router.push("/Home");      
+      router.push("/Home");
     }
   }, [session]);
 
@@ -81,15 +83,17 @@ const Navbar = (props: Props) => {
       <nav className="flex container mx-auto p-5 justify-between items-center">
         <div className="cursor-pointer">
           <span className="font-bold md:text-2xl">SPORT</span>
-          <span className="font-bold text-green-500 md:text-2xl">
+          <span className="font-bold text-[#d41640] md:text-2xl">
             EVENTS
-            <span className="text-black">.</span>
+            <span className="text-[#d41640]">.</span>
           </span>
         </div>
 
         {session ? (
-          <button className="bg-[#171717] w-fit p-1 md:px-4 text-white rounded-full transition-all text-sm flex justify-center items-center space-x-1"
-          onClick={handleLogoutBtn}>
+          <button
+            className="bg-[#171717] w-fit p-1 md:px-4 text-white rounded-full transition-all text-sm flex justify-center items-center space-x-1"
+            onClick={handleLogoutBtn}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -108,7 +112,7 @@ const Navbar = (props: Props) => {
           </button>
         ) : (
           <button
-            className="bg-[#171717] w-fit p-1 md:px-4 text-white rounded-full transition-all text-sm flex justify-center items-center space-x-1"
+            className="bg-[#d41640] hover:bg-black w-fit p-1 md:px-4 text-white rounded-full transition-all text-sm flex justify-center items-center space-x-1"
             onClick={handleLoginClick}
           >
             <svg

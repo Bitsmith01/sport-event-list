@@ -9,8 +9,8 @@ import { GetServerSidePropsContext } from "next";
 export const authConfig: NextAuthOptions = {
   providers: [
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID as string,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+      clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_SECRET as string,
     }),
     GithubProvider({
       clientId: process.env.GITHUB_CLIENT_ID as string,
@@ -25,20 +25,3 @@ export const authConfig: NextAuthOptions = {
 };
 
 export default authConfig;
-
-export const getServerSideProps = async (context: GetServerSidePropsContext) => {
-  const session = await getSession(context);
-
-  if (!session) {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false,
-      },
-    };
-  }
-
-  return {
-    props: {},
-  };
-};

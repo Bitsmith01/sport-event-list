@@ -9,6 +9,7 @@ import Contests from "../../components/Contests";
 import Popular from "../../components/Popular";
 import Footer from "../../components/Footer";
 import Login from "../../components/Login";
+import Results from "../../components/Results";
 
 export default function Home() {
   const [sportlists, setSportlists] = useState([]);
@@ -42,8 +43,9 @@ export default function Home() {
     <>
       <Navbar />
       <Hero />
-      <Popular sportlists={sportlists} />
       <Contests />
+      <Results />
+      {/* <Popular sportlists={sportlists} /> */}
       <Footer />
     </>
   );

@@ -11,7 +11,7 @@ type Props = {
 
 const ContestsCard = ({ article }: Props) => {
   return (
-    <div className="h-96 bg-gray-100 shadow-2xl rounded-md">
+    <div className="h-96 shadow-2xl rounded-md">
       <div className="h-3/4 relative">
         <Image
           src={article.image}
@@ -26,7 +26,7 @@ const ContestsCard = ({ article }: Props) => {
           }}
           alt="Contest Image"
         />
-        <span className="absolute z-10 rounded-full bg-[#22c55ec0] w-fit flex justify-center items-center text-sm px-5 text-white font-semibold top-[20px] left-[20px]">
+        <span className="absolute z-10 rounded-md bg-[#d41640] w-[100px] text-center h-[80px] flex justify-center items-center text-sm px-5 text-white font-semibold top-[20px] left-[20px]">
           {article.league}
         </span>
       </div>

@@ -4,6 +4,8 @@ import Navbar from "../../../components/Navbar";
 import Homeeventcard from "../../../components/Homeeventcard";
 import axios from "axios";
 import Footer from "../../../components/Footer";
+import load from "../../../public/Progress_indicator-pana-removebg-preview.png"
+import Image from "next/image";
 
 type Props = {};
 
@@ -112,15 +114,16 @@ const Home: React.FC<Props> = ({}) => {
             </select>
           </div>
           <div className="w-full flex flex-col space-y-1">
-            {loading ? (
-              <div className="flex-1 flex justify-center items-center h-[500px]">
-                <p>Loading...</p>
-              </div>
-            ) : (
-              Events.map((event, index) => (
-                <Homeeventcard key={index} event={event} />
-              ))
-            )}
+          {loading ? (
+          <div className="flex-1 flex justify-center items-center h-[500px] flex-col mb-14">
+            <Image src={load} alt="Loading..." />
+            <p>Loading...</p>
+          </div>
+        ) : (
+          Events.map((event, index) => (
+            <Homeeventcard key={index} event={event} />
+          ))
+        )}
           </div>
         </div>
       </div>

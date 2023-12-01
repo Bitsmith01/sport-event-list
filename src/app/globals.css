@@ -1,12 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Josefin Sans", sans-serif;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #8d8c8c;
+    overflow-x: hidden;
+    font-weight: 300;
+    background: #12111a;
 }
 
-.bag{
-    background-image: url(../../public/jonathan-petersson-ARU18GpF6QQ-unsplash.jpg);
+.hero {
+    background: #910909;
 }

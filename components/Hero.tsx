@@ -1,38 +1,38 @@
 import React from "react";
 import image1 from "../public/emily-WOBRFCzgLdk-unsplash.jpg";
 import Image from "next/image";
+import banner from "../public/banner-bg.jpg";
+import sport from "../public/cricket-big-removebg-preview.png";
 
 type Props = {};
 
 const Hero = (props: Props) => {
   return (
-    <section className="container mx-auto flex flex-col space-y-3 md:space-y-10 relative mt-2 md:mt-6">
-      <div className="flex items-center justify-center px-5 py-2">
-        <span className="text-sm font-semibold md:font-bold text-center md:text-2xl md:w-[60%]">
-          Embark on the Thrill of{" "}
-          <span className="underline text-red-500">Sporting Events</span> :
-          Experience the Action, Feel the Emotion, Immerse Yourself in the Heart
-          of Passion !
-        </span>
-      </div>
-      <div className="h-96 mx-5 rounded-3xl bag relative">
+    <section className="relative w-full h-[500px] max-md:h-[400px] flex flex-col max-md:justify-start justify-center items-center">
+      <div className="absolute -z-10 w-full mx-auto">
         <Image
-          src={image1}
-          alt="image"
-          className="h-full w-full rounded-3xl object-cover z-10 absolute"
+          src={banner}
+          className="w-full h-[500px] max-md:h-[400px]"
+          alt="Banner"
         />
-        <div className="h-full w-full bg-[#01010167] rounded-3xl z-30 absolute text-white p-6 shadow-md md:p-20">
-          <div className="h-full flex flex-col justify-end items-start space-y-4">
-            <span className="h-6 bg-green-500 rounded-full p-2 flex justify-center items-center text-[15px]">
-              WORLD CUP
-            </span>
-            <span className="text-2xl font-bold">Benin - Brazil</span>
-            <p className="md:w-[40%]">
-              Epic Showdown at the World Stage: Benin Takes on Brazil in an
-              Intense World Cup Clash !
-            </p>
-            <button className="border-[1px] rounded-full p-2 text-sm hover:bg-[#ffffffa8] hover:text-black">Read more</button>
-          </div>
+      </div>
+      <div className="flex max-md:justify-center justify-center items-center container mx-auto h-full md:h-full">
+        <div className="w-1/2 max-md:w-full p-5">
+          <span className="text-[90px] max-md:text-[40px] font-[600] leading-[1.1] text-white">
+            SPORT IS JUST AWERSOME
+          </span>
+          <p className="text-white my-[20px] text-[20px] max-md:text-sm max-md:space-y-3 leading-[28px]">
+            Explore the incredible world of sports on our dedicated platform.
+            From the thrill of competitions to the health benefits, discover why
+            sports are just awesome. Join us for an unparalleled sports
+            experience!
+          </p>
+          <button className="w-[160px] h-[53px] bg-white text-black hover:bg-black hover:text-white">
+            Sign In
+          </button>
+        </div>
+        <div className="w-1/2 max-md:hidden flex justify-center items-center p-10">
+          <Image src={sport} alt="Sport" className="w-[400px] h-[400px]" />
         </div>
       </div>
     </section>
