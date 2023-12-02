@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 type Props = {
   article: {
@@ -12,7 +13,12 @@ type Props = {
 const ContestsCard = ({ article }: Props) => {
   return (
     <div className="h-96 shadow-2xl rounded-md">
-      <div className="h-3/4 relative">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        className="h-3/4 relative"
+      >
         <Image
           src={article.image}
           width={500}
@@ -29,7 +35,7 @@ const ContestsCard = ({ article }: Props) => {
         <span className="absolute z-10 rounded-md bg-[#d41640] w-[100px] text-center h-[80px] flex justify-center items-center text-sm px-5 text-white font-semibold top-[20px] left-[20px]">
           {article.league}
         </span>
-      </div>
+      </motion.div>
       <div className="h-1/4 p-5">
         <span>{article.title}</span>
       </div>

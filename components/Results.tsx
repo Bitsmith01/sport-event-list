@@ -1,8 +1,9 @@
 import React from "react";
 import latestresultbg from "../public/bg-01.jpg";
 import Image from "next/image";
-import Real from "../public/real-madrid-logo-0-removebg-preview.png";
-import Barca from "../public/Symbole-Barcelona-removebg-preview.png";
+import Ligers from "../public/team-logo-03.png";
+import Bayern from "../public/Chelsea_FC.svg.webp";
+import { motion, AnimatePresence } from "framer-motion";
 
 type Props = {};
 
@@ -16,17 +17,24 @@ const Results = (props: Props) => {
           className="h-[40rem] object-cover"
         />
       </div>
-      <div className="h-fit container mx-auto flex flex-col justify-start items-center">
-        <span className="text-2xl md:text-[48px] font-[400] text-white mt-5 p-5">
+      <motion.div
+        initial={{ opacity: 0, y: 25 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.70 }}
+        className="h-fit container mx-auto flex flex-col justify-start items-center"
+      >
+        <span className="text-xl md:text-[48px] font-[400] my-5 p-5">
           Latest Results
         </span>
         <div className="w-full md:flex md:justify-center md:items-center md:flex-1 md:mt-6">
           <div className="w-full h-1/3">
-            <div className="w-full flex flex-col justify-center items-center">
-              <span className="text-3xl font-bold text-white">Real Madrid</span>
+            <div className="w-full flex flex-col justify-center items-center md:flex-row md:space-x-3">
+              <span className="text-3xl font-bold text-white max-md:hidden">
+                Ligers
+              </span>
               <Image
-                src={Real}
-                alt="Real Madrid"
+                src={Ligers}
+                alt="Ligers"
                 className="h-[200px] w-[200px]"
               />
             </div>
@@ -36,17 +44,14 @@ const Results = (props: Props) => {
             <span className="text-5xl text-white font-bold">00:00</span>
           </div>
           <div className="w-full h-1/3">
-            <div className="w-full flex flex-col justify-center items-center">
-              <span className="text-3xl font-bold text-white max-md:hidden">
-                Barcelona
-              </span>
+            <div className="w-full flex flex-col justify-center items-center md:flex-row md:space-x-3">
               <Image
-                src={Real}
-                alt="Barcelone"
+                src={Bayern}
+                alt="Bayern"
                 className="h-[200px] w-[200px]"
               />
-              <span className="text-3xl font-bold text-white md:hidden">
-                Barcelona
+              <span className="text-3xl font-bold text-white max-md:hidden">
+                Chelsea FC
               </span>
             </div>
           </div>
@@ -75,46 +80,46 @@ const Results = (props: Props) => {
           <div className="flex overflow-x-auto space-x-2">
             <div className="border-[1px] flex justify-around items-center my-6 md:w-1/3 w-full shrink-0">
               <Image
-                src={Real}
+                src={Ligers}
                 alt="Barcelone"
                 className="h-[100px] w-[100px]"
               />
               <span className="text-xl text-white">3h:45 PM</span>
               <Image
-                src={Real}
+                src={Ligers}
                 alt="Barcelone"
                 className="h-[100px] w-[100px]"
               />
             </div>
             <div className="border-[1px] flex justify-around items-center my-6 md:w-1/3 w-full shrink-0">
               <Image
-                src={Real}
+                src={Ligers}
                 alt="Barcelone"
                 className="h-[100px] w-[100px]"
               />
               <span className="text-xl text-white">3h:45 PM</span>
               <Image
-                src={Real}
+                src={Ligers}
                 alt="Barcelone"
                 className="h-[100px] w-[100px]"
               />
             </div>
             <div className="border-[1px] flex justify-around items-center my-6 md:w-1/3 w-full shrink-0">
               <Image
-                src={Real}
+                src={Ligers}
                 alt="Barcelone"
                 className="h-[100px] w-[100px]"
               />
               <span className="text-xl text-white">3h:45 PM</span>
               <Image
-                src={Real}
+                src={Ligers}
                 alt="Barcelone"
                 className="h-[100px] w-[100px]"
               />
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
