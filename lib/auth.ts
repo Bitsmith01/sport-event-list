@@ -17,11 +17,6 @@ export const authConfig: NextAuthOptions = {
       clientSecret: process.env.GITHUB_CLIENT_SECRET as string,
     }),
   ],
-  callbacks: {
-    async signIn() {
-      return "http://localhost:3000/Home";
-    },
-  },
 };
 
 export default authConfig;

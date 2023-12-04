@@ -13,11 +13,8 @@ const Navbar = (props: Props) => {
   const router = useRouter();
 
   useEffect(() => {
-    console.log(process.env.NEXT_PUBLIC_GOOGLE_CLIENT_SECRET);
-
     if (session) {
       localStorage.setItem("user", JSON.stringify(session.user));
-      router.push("/Home");
     }
   }, [session]);
 
@@ -29,9 +26,7 @@ const Navbar = (props: Props) => {
     setshowloginSection(false);
   };
 
-  const handleLoginBtn = async () => {
-    console.log(process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID);
-    
+  const handleLoginBtn = async () => {    
     await signIn("github");
   };
 
