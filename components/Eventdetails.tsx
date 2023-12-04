@@ -124,10 +124,10 @@ const EventDetails: React.FC<EventDetailsProps> = ({ info }) => {
                 )}
               </div>
               <div className="w-full px-5 ">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam
-                eaque vero consequuntur voluptates nostrum quisquam rerum
-                officia ducimus, deserunt iure laboriosam explicabo facilis
-                dolores, totam, reprehenderit quos dolorem cupiditate natus.
+                Exciting match between {homeTeam?.NAME} and {awayTeam?.NAME}!
+                The competition is fierce as both teams strive for victory.
+                Don&lsquo;t miss the action as they battle it out on the field. Stay
+                tuned for live scores and thrilling moments !
               </div>
             </div>
           </div>
