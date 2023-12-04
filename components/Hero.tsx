@@ -20,10 +20,9 @@ const Hero = (props: Props) => {
       <div className="flex max-md:justify-center justify-center items-center container mx-auto h-full md:h-full">
         <AnimatePresence>
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 75 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 15 }}
-            transition={{ delay: 0.25 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
             className="w-1/2 max-md:w-full p-5"
           >
             <span className="text-[90px] max-md:text-[40px] font-[600] leading-[1.1] text-white">
