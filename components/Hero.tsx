@@ -4,6 +4,7 @@ import Image from "next/image";
 import banner from "../public/banner-bg.jpg";
 import sport from "../public/cricket-big-removebg-preview.png";
 import { motion, AnimatePresence } from "framer-motion";
+import { signIn } from "next-auth/react";
 
 type Props = {};
 
@@ -34,7 +35,12 @@ const Hero = (props: Props) => {
               why sports are just awesome. Join us for an unparalleled sports
               experience!
             </p>
-            <button className="w-[160px] h-[53px] bg-white text-black hover:bg-black hover:text-white">
+            <button
+              onClick={async () => {
+                await signIn("github");
+              }}
+              className="w-[160px] h-[53px] bg-white text-black hover:bg-black hover:text-white"
+            >
               Sign In
             </button>
           </motion.div>

@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import ime from "../public/7611770-removebg-preview.png";
+import ime from "../public/kisspng-github-computer.jpg";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { signIn, useSession, signOut } from "next-auth/react";
@@ -69,7 +69,7 @@ const Navbar = (props: Props) => {
               >
                 <Image src={ime} width={60} alt="image" />
                 <span className="text-black max-md:hidden">
-                  Sign in with Google to unlock additional features and
+                  Sign in with Github to unlock additional features and
                   personalized experiences.
                 </span>
               </button>
