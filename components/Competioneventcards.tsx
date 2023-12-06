@@ -26,8 +26,11 @@ const SoccerCard: React.FC<SoccerCardProps> = ({ image, Type }) => {
           {Type}
         </motion.span>
         <div className="translate-y-8 text-white transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus
-          veritatis blanditiis cum ratione reprehenderit.
+          Step into the realm of world-class competition, where the pulse of
+          excitement beats in harmony with the pursuit of greatness. This league
+          is the epicenter of athleticism, bringing together competitors from
+          every corner of the globe in a celebration of skill, dedication, and
+          the sheer joy of the game.
         </div>
       </div>
     </div>
